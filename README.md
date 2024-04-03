@@ -1,5 +1,5 @@
 # Intro to bun!
-![download.png]
+![download.png](/download.png)
 ## What is Bun
 
 ## Server Example
