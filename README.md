@@ -10,7 +10,7 @@
   - [Step 3: Add routers](#step-3-add-routers)
   - [Step 4: Connect to database](#step-4-connect-to-database)
   - [Bun vs Node.js](#bun-vs-nodejs)
-- [Build an React App](#react-app-example)
+- [Using React with Bun](#react-example)
 - [Convert existing projects to use Bun](#how-to-convert-your-existing-projects-to-use-bun)
 - [Run test with Bun](#example-for-bun-test-)
 - [Limitations and Challenges](#limitations-and-challenges)
@@ -268,7 +268,32 @@ a fast built-in package manager([`bun install`](https://bun.sh/docs/cli/install)
 
 <br/>
 
-## React App Example
+## React Example
+React works very well with Bun, because Bun supports `.jsx` and `.tsx` files automatically. As long as you have react installed
+```
+bun install react
+```
+Bun will automatically interpret code as JSX, so something like:
+```
+const element = <h1>Hello, world!</h1>;
+```
+works with Bun because Bun's internal transpiler converts JSX syntax into vanilla Javascript before execution.
+
+To start a new React app using Bun, there is a react app template that you can generate with the `bun create` command. It isn't required, but helps make getting started a bit faster and easier.
+
+```
+bun create react-app my_new_react_app
+```
+This will install required packages and create a new template app, just like if you ran the `npx create-react-app projectname` command that we used in class before.
+
+To run the React app using bun:
+```
+cd my_new_react_app
+
+bun start
+```
+
+From here, you can continue building your app in React the same as usual.
 
 ## How to convert your existing projects to use Bun
 
