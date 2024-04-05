@@ -278,6 +278,8 @@ Run `bun install` to install all the dependencies in your project. This will gen
 
 To start your project, run `bun start` in the root directory of your project. This will start your React app on `http://localhost:3000` or whichever port you have specified in your `package.json` file.
 
+It's that simple! You can now use Bun to manage your React projects.
+
 ## Example for Bun test ?
 
 ## Limitations and Challenges
