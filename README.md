@@ -272,6 +272,12 @@ a fast built-in package manager([`bun install`](https://bun.sh/docs/cli/install)
 
 ## How to convert your existing projects to use Bun
 
+In your existing React project, delete the `node_modules` folder and `package-lock.json` file. Make sure you have Bun installed, if not go to the [installation](#installation) section.
+
+Run `bun install` to install all the dependencies in your project. This will generate a `node_modules` folder and a `bun.lockb` file.
+
+To start your project, run `bun start` in the root directory of your project. This will start your React app on `http://localhost:3000` or whichever port you have specified in your `package.json` file.
+
 ## Example for Bun test ?
 
 ## Limitations and Challenges
