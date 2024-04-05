@@ -24,17 +24,17 @@
 Bun is a Javascript runtime and comprehensive toolkit that simplifies development. 
 
 ### Why use Bun?
-```
+---
 Bun is a JavaScript runtime that's disrupting the dominance of Node.js and Deno by simplifying complexity while boosting speed. It ditches the standard V8 engine in favor of JavaScriptCore from Apple's Safari browser, resulting in a significant performance upgrade.
-```
+
 ![download.png](./pics/comparison.png)
 
-```
+
 Moreover, Bun isn't just a runtime—it's an all-in-one toolkit. With features like a bundler, transpiler, task runner, and package management, it eliminates the need for juggling multiple tools. It seamlessly integrates with TypeScript projects, treating them as first-class citizens without requiring external dependencies like with Node.js. Similarly, Bun includes support for testing with Jest, as well as bundling and transpilation functionalities, all without the need for additional installations. This consolidation marks a step towards a future where a single tool can handle entire projects effortlessly.
 
 And the best part? It seamlessly replaces Node.js, maintaining compatibility with familiar Node APIs and npm packages. Whether you're running servers or handling passwords, Bun has you covered—all within one tidy package.
 
-```
+
 ## Installation
 ---
 Bun ships as a single executable code that can be installed in the following ways:
