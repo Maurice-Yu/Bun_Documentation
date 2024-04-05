@@ -15,20 +15,30 @@
 - [Run test with Bun](#example-for-bun-test-)
 - [Limitations and Challenges](#limitations-and-challenges)
 
+<br/>
+
 ![download.png](./pics/bun_logo.png)
 
 ## What is Bun
+
+---
+
 ### Why use Bun?
 ```
 STUFF HERE
 ```
 
+<br/>
 
 ## Build an HTTP server
+
+---
 
 A backend HTTP server manages your data and provides APIs for frontend services.  
 
 ### Step 1: Initiate a Bun project
+
+---
 
 Create a new folder for your server code: `mkdir server`. Then, inside the folder, execute `bun init`.
 During initialization, you'll see the following prompt:
@@ -52,6 +62,8 @@ By default, Bun will set the entry point of your server as `index.ts`. To use pu
 ```
 
 ### Step 2: Create an HTTP server
+
+---
 
 Inside `server.js`, we use the function `serve` implemented on the `Bun` global object to create a server.
 
@@ -79,8 +91,9 @@ You can also add the start script to `package.json`, then you can run the server
 }
 ```
 
-
 ### Step 3: Add routers
+
+---
 
 Usually, we'll need different urls for multiple APIs. `Bun` provides the [`bun-serve-router`](https://socket.dev/npm/package/bun-serve-router) package for that. 
 
@@ -125,16 +138,15 @@ served. So we need to check if we get a valid response. If response is `undefine
 
 Now you can see different responses when requesting for different URLs:
 
-<center>
-<figure>
-<img src="pics/rootpage.png" width="33%">
-<img src="pics/userpage.png"  width="33%">
-<img src="pics/errorpage.png" width="33%">
-</figure>
-</center>
-
+<div style="display:inline-block">
+  <img src="./pics/rootpage.png" alt="root page" width="400">
+  <img src="./pics/userpage.png" alt="user page" width="400">
+</div>
 
 ### Step 4: Connect to Database
+
+---
+
 Several database drivers work in Bun due to the compatibility with `node:tls` and `node:net` since Bun v0.5, 
 including [Postgres.js](https://github.com/porsager/postgres), [mysql2](https://github.com/sidorares/node-mysql2), [node-redis](https://github.com/redis/node-redis),
 [Mongoose](https://mongoosejs.com/docs/), and others.
@@ -203,6 +215,9 @@ you run it, you should see output in console like this:
 Finally, you can call `mongoose.disconnect()` to close a connection.
 
 ### Bun vs Node.js
+
+---
+
 As you can see, writing a Bun HTTP server is similar to writing a Node.js one. Why do we bother learning a new tool? 
 
 The key answer is performance. According to the [official document](https://bun.sh/docs/api/http#benchmarks), 
@@ -214,6 +229,7 @@ a fast built-in package manager([`bun install`](https://bun.sh/docs/cli/install)
 [`bun test`](https://bun.sh/docs/cli/test). It can relieve you from the complex, fragmented toolchains common today.
 
 
+<br/>
 
 ## React App Example
 
