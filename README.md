@@ -305,7 +305,38 @@ To start your project, run `bun start` in the root directory of your project. Th
 
 It's that simple! You can now use Bun to manage your React projects.
 
-## Example for Bun test ?
+In your existing React project, delete the `node_modules` folder and `package-lock.json` file. Make sure you have Bun installed, if not go to the [installation](#installation) section.
+
+Run `bun install` to install all the dependencies in your project. This will generate a `node_modules` folder and a `bun.lockb` file.
+
+To start your project, run `bun start` in the root directory of your project. This will start your React app on `http://localhost:3000` or whichever port you have specified in your `package.json` file.
+
+It's that simple! You can now use Bun to manage your React projects.
+
+## Testing with bun!
+### Intro to testing.
+Bun provides a built in test runner that allows you to execute unit, integration and performance tests. Here are a list of the features the test runner ships with.
+* JSX and Typescript compatiblity
+* snapshot testing
+* UI and DOM testing
+* Preloading and watching scripts
+### Writing Unit Tests.
+It is easy to write unit tests in bun. First you need to import tests
+`import { test } from "bun:test";`
+then define a test by using
+`test((funcarg1, funcarg2) => { expect(funcarg1+funcarg2).toBe(funcarg1+funcarg2);}
+The expect.tobe is an example of an assert. This will determine if the test passes or fails. 
+
+### Useful commands.
+
+Run command.
+* `bun test`
+This runs all the tests you created
+Useful flags.
+* `--todo`
+By marking tests with .todo you mark it as a regular test.
+* `--only`
+By marking test with .only you create a custom test suite that will exculsivly run
 
 ## Limitations and Challenges
 
