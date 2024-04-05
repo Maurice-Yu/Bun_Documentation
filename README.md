@@ -338,8 +338,13 @@ By marking tests with .todo you mark it as a regular test.
 * `--only`
 By marking test with .only you create a custom test suite that will exculsivly run
 
-## Limitations and Challenges
+## Limitations and Challenges.
 
-```
-A tech share for Bun js
-```
+### Limited adoption and support.
+One of the limitations for adopting bun into your tech stack is the limited ecosystem and support for bun. Bum also may not be compatible or interoperable with other modules within npm.
+
+### Ecosystem and tools.
+Bun, being a newer technology, has a compareably small ecosystem to Node.JS. Tools such as test runners, middleware and other things may not be as mature.
+
+### Limited testing and documentation.
+Being less adopted means that there is not as much inforation available on bugs. Unknown bugs may also be more prevalent.
