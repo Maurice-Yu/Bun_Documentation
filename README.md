@@ -17,8 +17,6 @@
 
 <br/>
 
-![download.png](./pics/bun_logo.png)
-
 ## What is Bun?
 
 ---
