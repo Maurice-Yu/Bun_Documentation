@@ -4,15 +4,15 @@
 
 - [What is Bun](#what-is-bun)
   - [Why use Bun](#why-use-bun)
-- [Build an HTTP server](#build-an-http-server)
+- [Installation](#installation)
+- [Building an HTTP server](#building-an-http-server)
   - [Step 1: Initiate a Bun project](#step-1-initiate-a-bun-project)
   - [Step 2: Create an HTTP server](#step-2-create-an-http-server)
   - [Step 3: Add routers](#step-3-add-routers)
   - [Step 4: Connect to database](#step-4-connect-to-database)
-  - [Bun vs Node.js](#bun-vs-nodejs)
-- [Using React with Bun](#react-example)
-- [Convert existing projects to use Bun](#how-to-convert-your-existing-projects-to-use-bun)
-- [Run test with Bun](#example-for-bun-test-)
+- [Using React with Bun](#using-react-with-bun)
+- [How to convert your existing projects to use Bun](#how-to-convert-your-existing-projects-to-use-bun)
+- [Testing with Bun](#testing-with-bun)
 - [Limitations and Challenges](#limitations-and-challenges)
 
 <br/>
@@ -20,11 +20,15 @@
 ![download.png](./pics/bun_logo.png)
 
 ## What is Bun?
+
 ---
+
 Bun is a Javascript runtime and comprehensive toolkit that simplifies development. 
 
 ### Why use Bun?
+
 ---
+
 Bun is a JavaScript runtime that's disrupting the dominance of Node.js and Deno by simplifying complexity while boosting speed. It ditches the standard V8 engine in favor of JavaScriptCore from Apple's Safari browser, resulting in a significant performance upgrade.
 
 ![download.png](./pics/comparison.png)
@@ -36,10 +40,13 @@ And the best part? It seamlessly replaces Node.js, maintaining compatibility wit
 
 
 ## Installation
+
 ---
+
 Bun ships as a single executable code that can be installed in the following ways:
 
  ### MacOS/Linux (curl)
+
  ```shell
  $ curl -fsSL https://bun.sh/install | bash # for macOS, Linux, and WSL
   # to install a specific version
@@ -47,27 +54,29 @@ Bun ships as a single executable code that can be installed in the following way
  ```
 
  ### Windows (cmd.exe)
- ---
+
  Keep note that Bun requires a minimum of Windows 10 version 1809
  ```shell
  $ powershell -c "irm bun.sh/install.ps1|iex"
  ```
 
  ### Docker
+
  ```shell
  $ docker pull oven/bun
  $ docker run --rm --init --ulimit memlock=-1:-1 oven/bun
 ```
-
 
 ### Ensure Installation
 ```shell
 $ bun --version
 ```
 
+Now you have Bun installed on your machine. In the following two sections, we'll show you how to build an HTTP application (both backend and frontend) with Bun.
+
 <br/>
 
-## Build an HTTP server
+## Building an HTTP server
 
 ---
 
@@ -251,30 +260,18 @@ you run it, you should see output in console like this:
 
 Finally, you can call `mongoose.disconnect()` to close a connection.
 
-### Bun vs Node.js
+<br/>
+
+## Using React with Bun
 
 ---
 
-As you can see, writing a Bun HTTP server is similar to writing a Node.js one. Why do we bother learning a new tool? 
-
-The key answer is performance. According to the [official document](https://bun.sh/docs/api/http#benchmarks), 
-the `Bun.serve` server can handle roughly 2.5x more requests per second than Node.js on Linux.
-
-Besides, Node.js is a pure JavaScript runtime, you need external dependencies to get Typescript support, npm for package management, as well as 
-third-party tools like Webpack for bundling. While Bun aims to provide an all-in-one JavaScript toolkit. It has First-Class TypeScript support, 
-a fast built-in package manager([`bun install`](https://bun.sh/docs/cli/install), `bun add`, `bun remove`, etc) , an easy-to-use bundler [`Bun.build`](https://bun.sh/docs/bundler), and a Jest-compatible test runner
-[`bun test`](https://bun.sh/docs/cli/test). It can relieve you from the complex, fragmented toolchains common today.
-
-
-<br/>
-
-## React Example
 React works very well with Bun, because Bun supports `.jsx` and `.tsx` files automatically. As long as you have react installed
 ```
 bun install react
 ```
 Bun will automatically interpret code as JSX, so something like:
-```
+```jsx
 const element = <h1>Hello, world!</h1>;
 ```
 works with Bun because Bun's internal transpiler converts JSX syntax into vanilla Javascript before execution.
@@ -295,15 +292,11 @@ bun start
 
 From here, you can continue building your app in React the same as usual.
 
+<br/>
+
 ## How to convert your existing projects to use Bun
 
-In your existing React project, delete the `node_modules` folder and `package-lock.json` file. Make sure you have Bun installed, if not go to the [installation](#installation) section.
-
-Run `bun install` to install all the dependencies in your project. This will generate a `node_modules` folder and a `bun.lockb` file.
-
-To start your project, run `bun start` in the root directory of your project. This will start your React app on `http://localhost:3000` or whichever port you have specified in your `package.json` file.
-
-It's that simple! You can now use Bun to manage your React projects.
+---
 
 In your existing React project, delete the `node_modules` folder and `package-lock.json` file. Make sure you have Bun installed, if not go to the [installation](#installation) section.
 
@@ -312,20 +305,29 @@ Run `bun install` to install all the dependencies in your project. This will gen
 To start your project, run `bun start` in the root directory of your project. This will start your React app on `http://localhost:3000` or whichever port you have specified in your `package.json` file.
 
 It's that simple! You can now use Bun to manage your React projects.
+
+<br/>
 
 ## Testing with bun!
+
+---
+
 ### Intro to testing.
 Bun provides a built in test runner that allows you to execute unit, integration and performance tests. Here are a list of the features the test runner ships with.
 * JSX and Typescript compatiblity
 * snapshot testing
 * UI and DOM testing
 * Preloading and watching scripts
+
+
 ### Writing Unit Tests.
 It is easy to write unit tests in bun. First you need to import tests
 `import { test } from "bun:test";`
 then define a test by using
-`test((funcarg1, funcarg2) => { expect(funcarg1+funcarg2).toBe(funcarg1+funcarg2);}
-The expect.tobe is an example of an assert. This will determine if the test passes or fails. 
+```javascript
+test((funcarg1, funcarg2) => { expect(funcarg1+funcarg2).toBe(funcarg1+funcarg2); })
+```
+The `expect.toBe` is an example of an assert. This will determine if the test passes or fails. 
 
 ### Useful commands.
 
@@ -338,13 +340,25 @@ By marking tests with .todo you mark it as a regular test.
 * `--only`
 By marking test with .only you create a custom test suite that will exculsivly run
 
-## Limitations and Challenges.
+<br/>
 
-### Limited adoption and support.
+## Limitations and Challenges
+
+---
+
+### Limited adoption and support
 One of the limitations for adopting bun into your tech stack is the limited ecosystem and support for bun. Bum also may not be compatible or interoperable with other modules within npm.
 
-### Ecosystem and tools.
+### Ecosystem and tools
 Bun, being a newer technology, has a compareably small ecosystem to Node.JS. Tools such as test runners, middleware and other things may not be as mature.
 
-### Limited testing and documentation.
+### Limited testing and documentation
 Being less adopted means that there is not as much inforation available on bugs. Unknown bugs may also be more prevalent.
+
+<br/>
+
+## Reference
+
+* [Bun Documentation](https://bun.sh/docs)
+* [Bun Server Router](https://socket.dev/npm/package/bun-serve-router)
+* [Read and write data to MongoDB using Mongoose and Bun](https://bun.sh/guides/ecosystem/mongoose)
